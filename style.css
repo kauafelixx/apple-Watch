@@ -23,14 +23,15 @@ body {
 
 nav {
   font-size: 13px;
+  position: relative; /* Para posicionar o menu dropdown */
 }
 
 nav ul {
   display: flex;
   justify-content: space-between;
-  /* max-width: 1000px;
-  margin: 0 auto; */
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 ul {
@@ -39,15 +40,15 @@ ul {
 
 li {
   cursor: pointer;
+}
 
-  &:hover {
-    text-decoration: underline;
-  }
+li:hover {
+  text-decoration: underline;
 }
 
 svg {
   display: block;
-  filter: drop-shadow(0 0 2px #000);
+ 
 }
 
 main {
@@ -66,6 +67,7 @@ a:hover {
 #produto {
   display: grid;
   grid-template-columns: 2fr 3fr;
+  gap: 20px;
 }
 
 #precos {
@@ -92,17 +94,11 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 4px;
-
-  & img {
-    width: 25px;
-  }
 }
 
-/* Nesting ou Aninhamento */
-
-/* #selo-carbono img {
+#selo-carbono img {
   width: 25px;
-} */
+}
 
 input[type="radio"] {
   display: none;
@@ -111,6 +107,7 @@ input[type="radio"] {
 #selecao-cores {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 #selecao-cores label {
@@ -158,10 +155,15 @@ input[type="radio"]:checked + label {
 #opcoes-tamanho {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
+
 #imagemPrincipal {
   transition: all 0.3s ease;
+  width: 100%;
+  height: auto;
 }
+
 #opcoes-tamanho label {
   border: solid 1px black;
   padding: 30px 50px;
@@ -225,4 +227,157 @@ button:hover {
   display: flex;
   gap: 25px;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Estilos para o Menu Hambúrguer */
+.hamburger {
+  display: none; /* Escondido por padrão */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 24px;
+  padding: 8px;
+}
+
+#menu {
+  transition: all 0.3s ease; /* Animação suave */
+}
+
+/* Media Queries para Responsividade em Celular */
+@media (max-width: 768px) {
+  body {
+    gap: 24px;
+    font-size: 12px;
+    padding: 0 16px;
+  }
+nav{
+  display: flex;
+  justify-content: column;
+  align-items: center;
+}
+  nav ul {
+    justify-content: center;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  nav li {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  #produto {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #opcoes-produto {
+    gap: 16px;
+  }
+
+  #selecao-cores {
+    justify-content: center;
+  }
+
+  #opcoes-tamanho label {
+    padding: 20px 30px;
+    font-size: 14px;
+  }
+
+  #imagemPrincipal {
+    max-width: 100%;
+  }
+
+  #selecionar-imagem {
+    gap: 15px;
+  }
+
+  #selecionar-imagem label img {
+    width: 36px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .entrega {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .informacoes-entrega {
+    gap: 2px;
+  }
+
+  #precos {
+    font-size: 16px;
+  }
+
+  #a-vista,
+  #parcelas,
+  .pequeno {
+    font-size: 11px;
+  }
+
+  /* Ativar hambúrguer em telas pequenas */
+  .hamburger {
+    display: block; /* Mostra o botão */
+  }
+
+  nav ul {
+    display: none; /* Esconde o menu por padrão */
+    flex-direction: column; /* Empilha itens verticalmente */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  nav ul.show {
+    display: flex; 
+    text-align: left;/* Mostra quando a classe 'show' é adicionada */
+  }
+}
+
+@media (max-width: 480px) {
+  nav{
+    display: none;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+   
+  }
+
+  nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  #selecao-cores label {
+    width: 32px;
+    height: 32px;
+  }
+
+  #selecao-cores label img {
+    width: 24px;
+  }
+
+  #opcoes-tamanho label {
+    padding: 15px 20px;
+    font-size: 12px;
+  }
+
+  #selecionar-imagem label img {
+    width: 28px;
+  }
 }

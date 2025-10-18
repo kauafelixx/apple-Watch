@@ -70,3 +70,6 @@ function atualizarTamanho() {
 
   tituloElemento.textContent = `Pulseira loop esportiva ${opcoesNomesCores[numCorSelecionada]} para caixa de ${text}`;
 }
+
+
+
