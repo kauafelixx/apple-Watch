@@ -14,11 +14,11 @@ const opcoesNomesCores = [
 ];
 
 const opcoesCores = [
-  "Verde-cipreste",
-  "Azul-inverno",
-  "Meia-noite",
-  "Estelar",
-  "Rosa-claro",
+  "verde-cipreste",
+  "azul-inverno",
+  "meia-noite",
+  "estelar",
+  "rosa-claro",
 ];
 
 let numImagemSelecionada = 1;
